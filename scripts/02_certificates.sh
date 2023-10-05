@@ -15,11 +15,11 @@ SERVER_CSR="${LOCATION}/server.csr"
 echo $SERVER_KEY, $SERVER_CERT, $CA_KEY
 
 printf "\n# Create the CA...\n"
-openssl genrsa -des3 -password pass: -out $CA_KEY 4096
+openssl genrsa -des3 -out $CA_KEY 4096
 openssl req -new -x509 -days 365 -key $CA_KEY -out $CA_CRT
 
 printf "\n# Create the Server Key...\n"
-openssl genrsa -password pass: -out $SERVER_KEY 4096
+openssl genrsa -out $SERVER_KEY 4096
 
 printf "\n# Create the Server CSR...\n"
 openssl req -new -key $SERVER_KEY -out $SERVER_CSR
